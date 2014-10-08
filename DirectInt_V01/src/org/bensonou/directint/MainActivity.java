@@ -4,28 +4,36 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.*;
+import android.widget.AdapterView.OnItemClickListener;
 
 import org.bensonou.directint.util.*;
 
 public class MainActivity extends Activity{
-
-	WifiUtility myWifi;
+	
+	Button btnSwitch;	
+	Button btnRefresh;
+	Button btnLoad;
 	
 	ListView listWifi;
 	SimpleAdapter adapterListWifi;
 	
-	Button btnLoad;
-	Button btnRefresh;
-	
-	private void initialComponent() {
-		myWifi = new WifiUtility(this);
-		
-		
-	}
+	WifiUtility myWifi;
 	
 	private void initailVariable() {
 		
+	}
+	
+	private void initialComponent() {
+		btnSwitch = (Button) findViewById(R.id.btnSwitch);
+		btnRefresh = (Button) findViewById(R.id.btnRefresh);
+		btnLoad = (Button) findViewById(R.id.btnLoad);
+		
+		
+		
+		myWifi = new WifiUtility(this);
 	}
 	
 	@Override
@@ -33,7 +41,8 @@ public class MainActivity extends Activity{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		
-		
+		initailVariable();
+		initialComponent();
 		
 	}
 
@@ -58,4 +67,22 @@ public class MainActivity extends Activity{
 		return super.onOptionsItemSelected(item);
 	}
 	
+}
+
+class MainClickListener implements OnClickListener{
+
+	@Override
+	public void onClick(View v) {
+		
+	}
+	
+}
+
+class MainItemListener implements OnItemClickListener{
+
+	@Override
+	public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+		
+	}
+		
 }
