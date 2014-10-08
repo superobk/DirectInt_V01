@@ -9,23 +9,24 @@
 
     <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        
         <Button
             android:id="@+id/btnSwitch"
-            android:layout_width="wrap_content"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:text="Open Wifi " />
         
         <Button
             android:id="@+id/btnRefresh"
-            android:layout_width="wrap_content"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:text="  Refresh " />
         
         <Button
             android:id="@+id/btnLoad"
-            android:layout_width="wrap_content"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:text="  Launch  " />
 
@@ -37,7 +38,7 @@
         android:orientation="vertical" >
 
         <ListView
-            android:id="@+id/listView1"
+            android:id="@+id/listWifi"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" >
         </ListView>

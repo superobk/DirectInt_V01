@@ -8,32 +8,47 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.*;
 import android.widget.AdapterView.OnItemClickListener;
+import android.util.*;
 
 import org.bensonou.directint.util.*;
 
 public class MainActivity extends Activity{
+	
+	public final static String TAG = "DirectInt";
+	
+	String[] testList = {"Piggy sister", "Zhu mei", "Zhu qinqin"};
 	
 	Button btnSwitch;	
 	Button btnRefresh;
 	Button btnLoad;
 	
 	ListView listWifi;
-	SimpleAdapter adapterListWifi;
+	ArrayAdapter<String> adapterListWifi;
 	
 	WifiUtility myWifi;
-	
-	private void initailVariable() {
-		
-	}
-	
+
 	private void initialComponent() {
 		btnSwitch = (Button) findViewById(R.id.btnSwitch);
 		btnRefresh = (Button) findViewById(R.id.btnRefresh);
 		btnLoad = (Button) findViewById(R.id.btnLoad);
+		listWifi = (ListView) findViewById(R.id.listWifi);
 		
+		MainBtnListener btnListener = new MainBtnListener();
+		MainListListener listListener = new MainListListener();
 		
+		btnSwitch.setOnClickListener(btnListener);
+		btnRefresh.setOnClickListener(btnListener);
+		btnLoad.setOnClickListener(btnListener);
+		listWifi.setOnItemClickListener(listListener);
+		
+		adapterListWifi = new ArrayAdapter<>(this, R.layout.listviewitem_main, testList);
+		listWifi.setAdapter(adapterListWifi);
 		
 		myWifi = new WifiUtility(this);
+	}
+	
+	private void initailVariable() {
+		
 	}
 	
 	@Override
@@ -69,16 +84,31 @@ public class MainActivity extends Activity{
 	
 }
 
-class MainClickListener implements OnClickListener{
+class MainBtnListener implements OnClickListener{
 
 	@Override
 	public void onClick(View v) {
-		
+		switch (v.getId()) {
+		case R.id.btnSwitch:
+			Log.i(MainActivity.TAG, "Switch has been click.");
+			System.out.println("Switch has been click.");
+			break;
+		case R.id.btnRefresh:
+			Log.i(MainActivity.TAG, "Refresh has been click.");
+			System.out.println("Refresh has been click.");
+			break;
+		case R.id.btnLoad:
+			Log.i(MainActivity.TAG, "Load has been click.");
+			System.out.println("Load has been click.");
+			break;
+		default:
+			break;
+		}
 	}
 	
 }
 
-class MainItemListener implements OnItemClickListener{
+class MainListListener implements OnItemClickListener{
 
 	@Override
 	public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
