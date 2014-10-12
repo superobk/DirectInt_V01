@@ -41,7 +41,7 @@ public class MainActivity extends Activity{
 		btnLoad.setOnClickListener(btnListener);
 		listWifi.setOnItemClickListener(listListener);
 		
-		adapterListWifi = new ArrayAdapter<>(this, R.layout.listviewitem_main, testList);
+		adapterListWifi = new ArrayAdapter<String>(this, R.layout.listviewitem_main, testList);
 		listWifi.setAdapter(adapterListWifi);
 		
 		myWifi = new WifiUtility(this);
