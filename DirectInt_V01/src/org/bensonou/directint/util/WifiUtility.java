@@ -1,6 +1,6 @@
 package org.bensonou.directint.util;
 
-import java.util.List;
+import java.util.*;
 
 import android.content.Context;
 import android.net.wifi.ScanResult;
@@ -14,6 +14,7 @@ public class WifiUtility {
 	private WifiManager mWifiManager;
 	private WifiInfo mWifiInfo;
 	private List<ScanResult> mWifiList;
+	
 	// List of Wifi Configuration
 	private List<WifiConfiguration> mWifiConfiguration;
 	
@@ -58,7 +59,7 @@ public class WifiUtility {
 		}
 	}
 
-	public void creatWifiLock() {
+	public void createWifiLock() {
 		mWifiLock = mWifiManager.createWifiLock("Test");
 	}
 
@@ -84,6 +85,14 @@ public class WifiUtility {
 
 	public List<ScanResult> getWifiList() {
 		return mWifiList;
+	}
+	
+	public String[] getWifiListString() {
+		String[] wifiString = new String[mWifiList.size()];
+		for (int i = 0; i < mWifiList.size(); i++){
+			wifiString[i] = mWifiList.get(i).SSID;
+		}
+		return wifiString;
 	}
 
 	public StringBuilder lookUpScan() {
